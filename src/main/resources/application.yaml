@@ -3,11 +3,9 @@ server:
 spring:
   application:
     name: review-service
-  # ? ?u tiên l?y t? ENV SPRING_DATA_MONGODB_URI; n?u không có thì dùng service-name "mongodb"
   data:
     mongodb:
       uri: ${SPRING_DATA_MONGODB_URI:mongodb://root:root@mongodb:27017/review_db?authSource=admin}
-  # Upload multipart (cho /update kèm ?nh)
   servlet:
     multipart:
       max-file-size: 50MB
@@ -16,11 +14,9 @@ spring:
     openfeign:
       client:
         config:
-          # Timeout m?c ??nh cho t?t c? Feign client
           default:
             connect-timeout: 60000
             read-timeout: 120000
-          # File-service (??c t? ENV FEIGN_FILE, fallback sang service-name trong network)
           file-service:
             url: ${FEIGN_FILE:http://file-service:8084/file}
             connect-timeout: 30000
