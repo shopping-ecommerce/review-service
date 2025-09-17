@@ -1,5 +1,7 @@
 server:
   port: 8088
+  servlet:
+    context-path: /feedback
 spring:
   application:
     name: review-service
