@@ -1,16 +1,14 @@
-package iuh.fit.se.dto.request;
+package iuh.fit.event.dto;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-@Data
 @Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ReportUpdateRequest {
-    String reportId;
+public class ProductInvalid {
     String productId;
-    String status;
     String reason;
 }
