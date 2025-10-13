@@ -3,6 +3,11 @@ server:
   servlet:
     context-path: /feedback
 spring:
+  kafka:
+    bootstrap-servers: ${DBKK_CONNECTION:kafka}:9094
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   application:
     name: review-service
   data:
