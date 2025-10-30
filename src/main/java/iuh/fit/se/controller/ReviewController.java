@@ -40,4 +40,13 @@ public class ReviewController {
                 .result(reviewService.getReviewsByProductId(productId))
                 .build();
     }
+
+    @DeleteMapping("/by-product/{productId}")
+    ApiResponse<Void> deleteByProduct(@PathVariable String productId) {
+        reviewService.deleteByProductId(productId);
+        return ApiResponse.<Void>builder()
+                .code(200)
+                .message("Reviews deleted successfully")
+                .build();
+    }
 }
