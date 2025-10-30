@@ -11,4 +11,6 @@ public interface ReviewService {
     ReviewResponse createReview(ReviewRequest request, List<MultipartFile> files);
     List<ReviewResponse> getAllReviews();
     List<ReviewResponse> getReviewsByProductId(String productId);
+
+    void deleteByProductId(String productId);
 }
