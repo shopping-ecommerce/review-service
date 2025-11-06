@@ -11,4 +11,5 @@ public interface ReportService {
     List<ReportResponse> getAllReports();
     List<ReportResponse> getReportsByProductId(String productId);
     ReportResponse updateReportStatus(ReportUpdateRequest request);
+    List<ReportResponse> getReportsByUserNoPaging(String userId);
 }
