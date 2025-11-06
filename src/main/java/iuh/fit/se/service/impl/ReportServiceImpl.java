@@ -56,4 +56,12 @@ public  class ReportServiceImpl implements ReportService {
         }
         return reportMapper.toReportResponse(savedReport);
     }
+
+    @Override
+    public List<ReportResponse> getReportsByUserNoPaging(String userId) {
+        return reportRepository.findByUserIdOrderByCreatedAtDesc(userId).stream()
+                .map(reportMapper::toReportResponse)
+                .toList();
+    }
+
 }

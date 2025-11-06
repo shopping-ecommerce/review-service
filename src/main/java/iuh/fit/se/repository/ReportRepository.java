@@ -12,4 +12,5 @@ import java.util.List;
 public interface ReportRepository extends MongoRepository<Report, String> {
     List<ReportResponse> findAllByStatus(ReportStatus status);
     List<ReportResponse> findByProductId(String productId);
+    List<Report> findByUserIdOrderByCreatedAtDesc(String userId);
 }

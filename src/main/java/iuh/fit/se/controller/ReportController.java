@@ -49,4 +49,17 @@ public class ReportController {
                 .result(reportService.updateReportStatus(request))
                 .build();
     }
+
+    @PreAuthorize("hasRole('CUSTOMER')")
+    @GetMapping("/by-user-safe/{userId}")
+    public ApiResponse<List<ReportResponse>> getReportsByUserSafe(
+            @PathVariable String userId
+    ) {
+        List<ReportResponse> result = reportService.getReportsByUserNoPaging(userId);
+        return ApiResponse.<List<ReportResponse>>builder()
+                .code(200)
+                .message("Reports retrieved successfully")
+                .result(result)
+                .build();
+    }
 }
